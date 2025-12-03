@@ -16,7 +16,7 @@ public class Uchiha extends Ninja{
                 "\n######## INFORMACOES DO NINJA ########" +
                 "\n# Nome do ninja: %s" +
                 "\n# Idade: %d" +
-                "\n# Habilidade Especial: %s\n" +
+                "\n# Habilidade Especial: %s" +
                 "\n######## INFORMACOES DA MISSAO #######" +
                 "\n# Missao: %s" +
                 "\n# Nivel da missao: %s" +

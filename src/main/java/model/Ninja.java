@@ -46,7 +46,7 @@ public class Ninja {
         return String.format("\n######################################" +
                 "\n######## INFORMACOES DO NINJA ########" +
                 "\n# Nome do ninja: %s" +
-                "\n# Idade: %d\n" +
+                "\n# Idade: %d" +
                 "\n######## INFORMACOES DA MISSAO #######" +
                 "\n# Missao: %s" +
                 "\n# Nivel da missao: %s" +
