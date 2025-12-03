@@ -1,28 +1,35 @@
-package service;
+package repository;
 
-import model.Categoria;
+import model.Category;
 import model.Ninja;
 import model.Uchiha;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
-import static model.Categoria.*;
+import static model.Category.*;
+import static model.DifficultyLevel.*;
 
 public class NinjaRepository {
-    public final Map<Categoria, Ninja> ninjasForCategory = new HashMap<>();
+    public final Map<Category, Ninja> ninjasForCategory = new HashMap<>();
+
     // Lista dos ninjas
-    public List<Ninja> listaNinjas(){
+    public List<Ninja> listNinjas(){
         List<Ninja> ninjas = new ArrayList<>();
-        ninjas.add(new Ninja(1L, "Might Guy", 29, "Konohagakure", JONIN));
-        ninjas.add(new Ninja(2L, "Kakashi Hatake", 27, "Konohagakure", JONIN));
-        ninjas.add(new Uchiha(3L, "Naruto Uzumaki", 12, "Konohagakure", GENIN));
-        ninjas.add(new Ninja(4L, "Sasuke Uchiha",12, "Konohagakure", GENIN));
-        ninjas.add(new Ninja(5L, "Gaara ", 13, "Sunagakure", GENIN));
-        ninjas.add(new Ninja(6L, "Shikamaru Nara", 12, "Konohagakure", CHUNIN));
-        ninjas.add(new Ninja(7L, "Kabuto Yakushi", 20, "Konohagakure", GENIN));
-        ninjas.add(new Ninja(8L, "Orochimaru ", 50, "Konohagakure", SANNIN));
+        ninjas.add(new Ninja(1L, "Might Guy", 29, "Konohagakure", JONIN, "Resgate do Kazekage", S, "Sucesso"));
+        ninjas.add(new Ninja(2L, "Kakashi Hatake", 27, "Konohagakure", JONIN, "Protecao de Tazuna", A, "Sucesso"));
+        ninjas.add(new Ninja(3L, "Naruto Uzumaki", 12, "Konohagakure", GENIN, "Protecao de Tazuna", C, "Sucesso"));
+        ninjas.add(new Uchiha(4L, "Sasuke Uchiha",12, "Konohagakure", GENIN, "Protecao de Tazuna", C, "Sucesso"));
+        ninjas.add(new Ninja(5L, "Shikamaru Nara", 13, "Konohagakure", CHUNIN, "Recuperacao de Sasuke", B, "Fracasso"));
 
         return ninjas;
     }
+
+    // Lista com ninjas filtrados por categoria
+    public List<Ninja> filterNinjasForCategory(Category category){
+
+        return listNinjas().stream()
+                .filter(n -> n.getCategory() == category)
+                .toList();
+    }
+
 }

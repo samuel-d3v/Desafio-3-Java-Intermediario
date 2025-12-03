@@ -1,33 +1,33 @@
-package repository;
+package service;
+
+import model.Category;
+import model.Ninja;
+import repository.NinjaRepository;
+
+import java.util.List;
+
+import static model.Category.*;
 
 public class NinjaService {
+    NinjaRepository repository;
 
-    public String rateMission(int choice){
-        if(choice<1 || choice>6) {
-            return "Opção invalida.";
-        }
-
-        String classificacao = "";
-
-        switch (choice){
-            case 1:
-                classificacao = "D";
-                break;
-            case 2:
-                classificacao = "C";
-                break;
-            case 3:
-                classificacao = "B";
-                break;
-            case 4:
-                classificacao = "A";
-                break;
-            case 5:
-                classificacao = "S";
-                break;
-        }
-        return classificacao;
+    public NinjaService(NinjaRepository repository){
+        this.repository = repository;
     }
 
+    public List<Ninja> classifyMission(String choice){
+        Category classification = switch(choice.toUpperCase()){
+            case "D", "C" -> GENIN;
+            case "B" -> CHUNIN;
+            case "A" -> JONIN;
+            case "S" -> JONIN;
+            default -> null;
+        };
 
+        if (classification == null) {
+            return List.of();
+        }
+
+        return repository.filterNinjasForCategory(classification);
+    }
 }

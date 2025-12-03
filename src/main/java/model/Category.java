@@ -1,5 +1,5 @@
 package model;
 
-public enum Categoria {
+public enum Category {
     GENIN, CHUNIN, JONIN,ANBU, KAGE, SANNIN;
 }
