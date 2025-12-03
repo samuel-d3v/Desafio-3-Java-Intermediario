@@ -19,8 +19,7 @@ public class NinjaService {
         Category classification = switch(choice.toUpperCase()){
             case "D", "C" -> GENIN;
             case "B" -> CHUNIN;
-            case "A" -> JONIN;
-            case "S" -> JONIN;
+            case "A", "S" -> JONIN;
             default -> null;
         };
 
